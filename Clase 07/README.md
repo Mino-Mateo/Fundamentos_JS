@@ -1,4 +1,5 @@
 # Fundamentos_JS - Async/DOM
 
-Utilizacion de DOM para manipulacion de elementos en HTML 
-Esto incluye tambien promesas y async 
+Utilizacion de Packet jason, helpers para poder consumir API´s 
+Ademas de el uso de el LocalStorage y su manipulacion respecto a los datos
+
