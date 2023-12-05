@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
 	res.send("ENTRANDO AL PAPU LOBBY :V");
 });
 
+app.get("/dashboard", (req, res) => {
+	res.send("BIENVENIDO A LA GRASA - TU APORTE ES MUY UTIL PARA NOSOTROS");
+});
+
 //! Crear un middleware
 app.use((req, res, next) => {
 	const { email, password } = req.body;
