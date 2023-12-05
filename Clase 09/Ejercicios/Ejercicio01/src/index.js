@@ -2,24 +2,32 @@
 
 //? Invocar la libreria de express
 const express = require("express"); //CommonJS
-const { engine } = require("express-handlebars");
 
 //? Crear una instancia
 const app = express();
+const port = 3000;
+app.use(express.json());
 
-// Utilizar un motor de plantillas
-app.engine("handlebars", engine());
-app.set("view engine", "handlebars");
-
-// Ubicacion del directorio views
-app.set("views", "./views");
-
-app.get("/dashboard", (req, res) => {
-	res.render("home");
+//? Peticiones
+//! Ruta publica
+app.get("/", (req, res) => {
+	res.send("ENTRANDO AL PAPU LOBBY :V");
 });
 
-app.get("/contactos", (req, res) => {
-	res.render("contactos");
+//! Crear un middleware
+app.use((req, res, next) => {
+	const { email, password } = req.body;
+
+	if (email === "patitojuan@gmail.com" && password == "12345") {
+		next();
+	} else {
+		res.send("Usuario no registrado");
+	}
+});
+
+//! Ruta privada
+app.get("/pedido", (req, res) => {
+	res.send("Bienvenido -- Listo para tomar su orden");
 });
 
 //? Salida
